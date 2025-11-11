@@ -174,7 +174,8 @@ img {
     color: var(--cor-verde-oliva);
 }
 
-/* ---- SEÇÃO HERO (JÁ ESTÁ COM VÍDEO/IMAGEM) ---- */
+
+
 .hero {
     position: relative;
     height: 100vh;
@@ -183,8 +184,8 @@ img {
     justify-content: center;
     text-align: center;
     color: var(--cor-branca);
-    background-color: #333; 
     overflow: hidden;
+    background: url('imgs/areaPiscina.JPEG') no-repeat center center/cover;
 }
 
 /* Filtro escuro */
