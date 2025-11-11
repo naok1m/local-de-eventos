@@ -1,0 +1,587 @@
+/* ---- IMPORTAÇÃO DE FONTES MODERNAS ---- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap');
+
+/* ---- VARIÁVEIS DE COR, FONTES E EFEITOS ---- */
+:root {
+    --cor-verde-oliva: #556B2F;
+    --cor-verde-pastel: #A9BC8A;
+    --cor-bege-claro: #F5F5DC;
+    --cor-bege-medio: #E8E4C9;
+    --cor-texto: #3E3E3E;
+    --cor-branca: #FFFFFF;
+
+    /* Novas Fontes */
+    --fonte-principal: 'Playfair Display', serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+
+    /* Novos Efeitos */
+    --shadow-suave: 0 4px 12px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.05);
+    --border-radius-suave: 12px; /* Bordas mais arredondadas */
+    --transition-rapida: all 0.3s ease;
+}
+
+/* ---- RESET E CONFIGURAÇÕES GLOBAIS ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-secundaria);
+    line-height: 1.7; /* Mais espaçamento entre linhas */
+    color: var(--cor-texto);
+    background-color: var(--cor-branca);
+    -webkit-font-smoothing: antialiased; /* Textos mais suaves */
+}
+h1{
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    display: flex;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: var(--fonte-principal);
+    font-size: 2.8rem; /* Título um pouco maior */
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--cor-verde-oliva);
+}
+
+.bg-light {
+    /* Fundo bege claro, mais suave que branco */
+    background-color: var(--cor-bege-claro); 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-suave); /* Imagens arredondadas */
+}
+
+/* ---- NAVEGAÇÃO REFINADA ---- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    backdrop-filter: blur(8px); /* Efeito de vidro fosco (moderno) */
+    box-shadow: none; /* Sombra inicial removida */
+    border-bottom: 1px solid var(--cor-bege-medio); /* Linha sutil */
+    z-index: 100;
+    transition: var(--transition-rapida);
+}
+
+.navbar.scrolled {
+    /* Sombra suave aparece ao rolar */
+    box-shadow: var(--shadow-suave); 
+    border-color: transparent;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.navbar .logo {
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-verde-oliva);
+    text-decoration: none;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-menu li {
+    margin-left: 25px;
+}
+
+.navbar .nav-menu a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    transition: var(--transition-rapida);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Efeito de linha sutil no hover do menu */
+.navbar .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-verde-oliva);
+    transition: var(--transition-rapida);
+}
+
+.navbar .nav-menu a:hover::after {
+    width: 100%;
+}
+
+.navbar .nav-menu a:hover {
+    color: var(--cor-verde-oliva);
+}
+
+/* Botão CTA refinado */
+.btn-cta {
+    background-color: var(--cor-verde-oliva);
+    color: var(--cor-branca) !important;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: var(--transition-rapida);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-cta:hover {
+    background-color: #445725;
+    transform: translateY(-2px); /* Efeito de "lift" */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    color: var(--cor-branca) !important;
+}
+
+.btn-cta:hover::after {
+    display: none; /* Remove efeito de linha do hover */
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--cor-verde-oliva);
+}
+
+/* ---- SEÇÃO HERO (JÁ ESTÁ COM VÍDEO/IMAGEM) ---- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--cor-branca);
+    background-color: #333; 
+    overflow: hidden;
+}
+
+/* Filtro escuro */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: var(--fonte-principal);
+    font-size: 4.0rem; /* Título mais impactante */
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sombra no texto */
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Botão Hero refinado */
+.btn-cta-hero {
+    background-color: var(--cor-verde-oliva);
+    color: var(--cor-branca);
+    padding: 14px 35px; /* Botão maior */
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: var(--transition-rapida);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-cta-hero:hover {
+    background-color: var(--cor-verde-pastel); /* Muda para o verde pastel */
+    color: var(--cor-verde-oliva); /* Texto escuro */
+    transform: translateY(-3px) scale(1.05); /* Efeito de zoom e lift */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* ---- SEÇÃO SOBRE (COM EFEITO DE CARD) ---- */
+.sobre-content {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Mais espaçamento */
+}
+
+.sobre-text {
+    flex: 1;
+}
+
+.sobre-text h2 {
+    font-family: var(--fonte-principal);
+    font-size: 2.5rem;
+    color: var(--cor-verde-oliva);
+    margin-bottom: 20px;
+}
+
+.sobre-image {
+    flex: 1;
+}
+
+.sobre-image img {
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--shadow-suave); /* Sombra suave na imagem */
+}
+
+/* ---- SEÇÃO GALERIA REFINADA ---- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Mais espaçamento */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-suave); /* Bordas suaves */
+    cursor: pointer;
+    box-shadow: var(--shadow-suave);
+    transition: var(--transition-rapida);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.03); /* Efeito de lift e zoom */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    border-radius: 0; /* Imagem interna não precisa de radius */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); /* Gradiente sutil */
+    color: var(--cor-branca);
+    padding: 30px 20px 20px 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    opacity: 1;
+    transition: var(--transition-rapida);
+}
+
+/* ---- SEÇÃO ESTRUTURA (AGORA EM CARDS) ---- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+/* Transformando em "Card" */
+.feature-item {
+    background: var(--cor-branca);
+    padding: 30px 20px;
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--shadow-suave);
+    transition: var(--transition-rapida);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px); /* Efeito de lift maior */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.feature-item i {
+    font-size: 3rem;
+    color: var(--cor-verde-oliva);
+    margin-bottom: 15px;
+    /* Efeito de background sutil no ícone */
+    background-color: var(--cor-bege-claro);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: var(--transition-rapida);
+}
+
+.feature-item:hover i {
+    background-color: var(--cor-verde-oliva);
+    color: var(--cor-branca);
+}
+
+.feature-item h3 {
+    font-family: var(--fonte-principal);
+    font-size: 1.5rem; /* Título maior */
+    margin-bottom: 10px;
+}
+
+/* ---- SEÇÃO DEPOIMENTOS (EM CARD) ---- */
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--cor-branca);
+    padding: 40px;
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--shadow-suave);
+}
+
+.testimonial p {
+    font-size: 1.3rem; /* Texto maior */
+    font-style: italic;
+    font-family: var(--fonte-principal); /* Fonte de título para citação */
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.testimonial span {
+    font-weight: bold;
+    color: var(--cor-verde-oliva);
+    font-family: var(--fonte-secundaria);
+    font-style: normal;
+    font-size: 1rem;
+}
+
+/* ---- SEÇÃO CONTATO (FORMULÁRIO ESTILIZADO) ---- */
+.contato-content {
+    display: flex;
+    gap: 40px;
+    background: var(--cor-bege-claro); /* Fundo bege suave para a seção */
+    padding: 40px;
+    border-radius: var(--border-radius-suave);
+    box-shadow: var(--shadow-suave);
+}
+
+.contato-info, .contato-form {
+    flex: 1;
+}
+
+.contato-info h2 {
+    font-family: var(--fonte-principal);
+    font-size: 2.5rem;
+    color: var(--cor-verde-oliva);
+    margin-bottom: 20px;
+}
+
+.contato-info ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.contato-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.contato-info i {
+    font-size: 1.5rem;
+    color: var(--cor-verde-oliva);
+    margin-right: 15px;
+}
+
+.contato-form h3 {
+    font-family: var(--fonte-principal);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Inputs e Textarea modernos */
+.contato-form input,
+.contato-form textarea {
+    width: 100%;
+    padding: 14px; /* Mais espaço interno */
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-bege-medio);
+    border-radius: 8px; /* Bordas mais suaves */
+    background-color: var(--cor-branca); /* Fundo branco */
+    font-family: var(--fonte-secundaria);
+    font-size: 1rem;
+    transition: var(--transition-rapida);
+}
+
+/* Efeito de foco sutil */
+.contato-form input:focus,
+.contato-form textarea:focus {
+    outline: none;
+    border-color: var(--cor-verde-oliva);
+    box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.1);
+}
+
+.contato-form button {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem !important; /* Herdando de .btn-cta-hero */
+}
+
+/* ---- RODAPÉ ---- */
+.footer {
+    /* Fundo mais suave, bege */
+    background-color: var(--cor-bege-claro);
+    color: var(--cor-texto);
+    padding: 40px 0; /* Mais espaçamento */
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin-left: 15px;
+    transition: var(--transition-rapida);
+}
+
+.social-links a:hover {
+    color: var(--cor-verde-oliva);
+    transform: translateY(-3px);
+}
+
+/* ---- RESPONSIVIDADE (CELULAR) ---- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    /* Ajuste da Navbar para Mobile */
+    .navbar .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--cor-branca);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow-suave);
+    }
+
+    .navbar .nav-menu.active {
+        left: 0;
+    }
+
+    .navbar .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .navbar .nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Hero Section Mobile */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* Seção Sobre Mobile */
+    .sobre-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .sobre-text {
+        text-align: center;
+    }
+
+    /* Seção Contato Mobile */
+    .contato-content {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+    .contato-info {
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .contato-info ul {
+        justify-content: center;
+    }
+
+    /* Rodapé Mobile */
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .social-links {
+        margin-top: 0;
+    }
+}
